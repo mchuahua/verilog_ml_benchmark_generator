@@ -1,4 +1,4 @@
-from logilab import constraint
+import constraint
 import sys
 import math
 import copy

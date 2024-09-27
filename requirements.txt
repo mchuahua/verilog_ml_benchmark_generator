@@ -1,8 +1,9 @@
 click==7.1.2
 python_constraint==1.4.0
 numpy==1.26.4
-pymtl3==3.1.2
+pymtl3==3.1.12
+comtypes==1.4.1
 jsonschema==3.2.0
 pytest==6.1.2
-logilab-constraint==1.0
+constraint==0.4.1
 PyYAML==5.3.1
