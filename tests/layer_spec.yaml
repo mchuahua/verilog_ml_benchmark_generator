@@ -9,12 +9,21 @@ data_widths:
     I: 8
     O: 32
 loop_dimensions:
-    RX: 3
-    RY: 3
-    C: 3
-    E: 32
-    PX: 224
-    PY: 224
-    B: 1
+    RX: 1
+    RY: 1
+    C: 1
+    E: 1
+    PX: 1
+    PY: 1
+    B: 5
     G: 1
+# loop_dimensions:
+#     RX: 3
+#     RY: 3
+#     C: 3
+#     E: 32
+#     PX: 224
+#     PY: 224
+#     B: 1
+#     G: 1
 activation_function: RELU

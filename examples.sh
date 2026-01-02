@@ -2,6 +2,7 @@
 # compile using ODIN
 echo "\n\n Example 1: Generate accelerator based on mapping vectors and compile using ODIN"
 verilog_ml_benchmark_generator generate-accelerator-verilog --act_buffer_definition ./tests/b1_spec.yaml --weight_buffer_definition ./tests/b0_spec.yaml --emif_definition ./tests/emif_spec.yaml --eb_definition ./tests/mlb_spec.yaml --mapping_vector_definition ./tests/projection_spec.yaml --include_sv_sim_models False
+verilog_ml_benchmark_generator generate-accelerator-verilog --act_buffer_definition ./tests/b1_spec.yaml --weight_buffer_definition ./tests/b0_spec.yaml --emif_definition ./tests/emif_spec.yaml --eb_definition ./tests/mlb_spec_test.yaml --mapping_vector_definition ./tests/projection_spec.yaml --include_sv_sim_models False
 $VTR_FLOW_PATH ./benchmark_accelerator_odin.v  ./tests/test_arch.xml -ending_stage 'abc'
 
 # Generate accelerator including simulation models of embedded blocks,
@@ -24,6 +25,11 @@ verilog_ml_benchmark_generator simulate-accelerator --act_buffer_definition ./te
 # Generate accelerator including instantiations of embedded blocks, and
 # compile using ODIN - this time specify layer dimensions instead of mapping vectors
 echo "\n\n Example 5: Generate accelerator based on given layer dimensions and compile using ODIN"
-verilog_ml_benchmark_generator generate-accelerator-verilog --act_buffer_definition ./tests/input_spec_intel_8.yaml --weight_buffer_definition ./tests/input_spec_intel_8.yaml --emif_definition ./tests/emif_spec_intel.yaml --eb_definition ./tests/mlb_spec_intel.yaml --include_sv_sim_models False --layer_definition ./tests/layer_spec.yaml --eb_count 988
+verilog_ml_benchmark_generator generate-accelerator-verilog --act_buffer_definition ./tests/b1_spec.yaml --weight_buffer_definition ./tests/b0_spec.yaml --emif_definition ./tests/emif_spec.yaml --eb_definition ./tests/mlb_spec_test.yaml --include_sv_sim_models False --layer_definition ./tests/layer_spec.yaml --eb_count 1
+# verilog_ml_benchmark_generator generate-accelerator-verilog --act_buffer_definition ./tests/input_spec_intel_8.yaml --weight_buffer_definition ./tests/input_spec_intel_8.yaml --emif_definition ./tests/emif_spec_intel.yaml --eb_definition ./tests/mlb_spec_intel.yaml --include_sv_sim_models True --layer_definition ./tests/layer_spec.yaml --eb_count 1
+verilog_ml_benchmark_generator generate-accelerator-verilog --act_buffer_definition ./tests/input_spec_intel_8.yaml --weight_buffer_definition ./tests/input_spec_intel_8.yaml --emif_definition ./tests/emif_spec_intel.yaml --eb_definition ./tests/mlb_spec_test.yaml --include_sv_sim_models False --layer_definition ./tests/layer_spec.yaml --eb_count 1
+# verilog_ml_benchmark_generator generate-accelerator-verilog --act_buffer_definition ./tests/input_spec_intel_8.yaml --weight_buffer_definition ./tests/input_spec_intel_8.yaml --emif_definition ./tests/emif_spec_intel.yaml --eb_definition ./tests/mlb_spec_intel.yaml --include_sv_sim_models False --layer_definition ./tests/layer_spec.yaml --eb_count 1
+verilog_ml_benchmark_generator generate-accelerator-verilog --act_buffer_definition ./tests/b1_spec.yaml --weight_buffer_definition ./tests/b0_spec.yaml --emif_definition ./tests/emif_spec.yaml --eb_definition ./tests/mlb_spec_test.yaml --include_sv_sim_models True --layer_definition ./tests/layer_spec.yaml --eb_count 1
+verilog_ml_benchmark_generator generate-accelerator-verilog --act_buffer_definition ../tests/b1_spec.yaml --weight_buffer_definition ../tests/b0_spec.yaml --emif_definition ../tests/emif_spec.yaml --eb_definition ../tests/mlb_spec_test.yaml --include_sv_sim_models True --layer_definition ../tests/layer_spec.yaml --eb_count 1
 $VTR_FLOW_PATH ./benchmark_accelerator_odin.v  ./tests/test_arch.xml -ending_stage 'abc'
 

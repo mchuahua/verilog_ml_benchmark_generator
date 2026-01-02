@@ -1,68 +1,76 @@
-block_name: "mlb_model"
+block_name: "ml_block"
 MAC_info:
-    num_units: 30
+    num_units: 1
     data_widths:
         W: 8
         I: 8
         O: 32
 access_patterns:
-    AP1: 0
+    AP1: 1
     AP2: 1
     AP3: 1
     AP4: 1
     AP5: 1
 output_accumulator: True
 ports:
-    -   name: a_en
-        width: 1
-        direction: "in"
-        type: "W_EN"
-    -   name: load_buf_sel
-        width: 1
-        direction: "in"
-        type: "MODE"
-    -   name: b_en
+    -   name: input_data_en
         width: 1
         direction: "in"
         type: "I_EN"
-    -   name: feed_sel0
+    -   name: load_weight_en
         width: 1
         direction: "in"
-        type: "C"
-    -   name: feed_sel1
-        width: 1
-        direction: "in"
-        type: "C"
+        type: "W_EN"
+    # -   name: b_en
+    #     width: 1
+    #     direction: "in"
+    #     type: "I_EN"
+    # -   name: feed_sel0
+    #     width: 1
+    #     direction: "in"
+    #     type: "C"
+    # -   name: feed_sel1
+    #     width: 1
+    #     direction: "in"
+    #     type: "C"
     -   name: acc_en
         width: 1
         direction: "in"
         type: "ACC_EN"
-    -   name: zero_en
-        width: 1
-        direction: "in"
-        type: "C"
-    -   name: data_in_w
-        width: 16
+    # -   name: zero_en
+    #     width: 1
+    #     direction: "in"
+    #     type: "C"
+    -   name: weight_in
+        width: 8
         direction: "in"
         type: "W"
-    -   name: data_in_i
-        width: 80
+    -   name: data_in
+        width: 8
         direction: "in"
         type: "I"
-    -   name: cascade_data_in
-        width: 96
+    -   name: full_data_in
+        width: 32
         direction: "in"
         type: "O"
-    -   name: b_cas_out
-        width: 80
-        direction: "out"
-        type: "I"
-    -   name: weight_cascade_out
-        width: 16
+    # -   name: cascade_data_in
+    #     width: 96
+    #     direction: "in"
+    #     type: "O"
+    # -   name: b_cas_out
+    #     width: 80
+    #     direction: "out"
+    #     type: "I"
+    -   name: weight_out
+        width: 8
         direction: "out"
         type: "W"
-    -   name: cascade_data_out
-        width: 96
+    -   name: data_out
+        width: 8
+        direction: "out"
+        type: "I"
+    -   name: full_data_out
+        width: 32
         direction: "out"
         type: "O"
     -   name: clk
